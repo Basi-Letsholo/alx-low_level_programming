@@ -1,20 +1,35 @@
 #include <stdlib.h>
 #include <time.h>
-/* more headers goes there */
-
-/*betty style doc for function main goes there */
+#include<stdio.h>
+/**
+ * main - Entry point
+ *
+ * Description: prints if n is +ve, -ve, or 0
+ *
+ * Return - 0
+ */
 int main(void)
 {
 	int n;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	/* your code goes there */
+
 	if (n == 0)
-		printf(n "is zero");
+	{
+		printf("%d", n);
+		printf(" is zero");
+	}
 	else if (n > 0)
-		printf(n "is positive");
+	{
+		printf("%d", n);
+		printf(" is positive");
+	}
 	else if (n < 0)
-		printf(n "is negative");
+	{
+		printf("%d", n);
+		printf(" is negative");
+	}
+	printf("\n");
 	return (0);
 }
