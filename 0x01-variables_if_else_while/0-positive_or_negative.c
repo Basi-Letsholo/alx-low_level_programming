@@ -1,12 +1,12 @@
-#include <stdlib.h>
-#include <time.h>
+#include<stdlib.h>
+#include<time.h>
 #include<stdio.h>
 /**
  * main - Entry point
  *
  * Description: prints if n is +ve, -ve, or 0
  *
- * Return - 0
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
