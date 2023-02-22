@@ -4,7 +4,7 @@
  * _islower - entry point
  * description: returns 1 if lowercase, otherwise 0
  * @c: letter, lowercase or not?
- * return: 1
+ * return: _islower
  */
 int _islower(int c)
 {
