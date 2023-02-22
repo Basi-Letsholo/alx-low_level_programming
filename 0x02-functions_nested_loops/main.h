@@ -17,4 +17,6 @@ int print_sign(int n);
 
 void jack_bauer(void);
 
+int add(int, int);
+
 #endif
