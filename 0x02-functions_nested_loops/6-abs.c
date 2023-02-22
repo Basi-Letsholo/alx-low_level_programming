@@ -2,23 +2,20 @@
 #include "main.h"
 /**
  * _abs - entry point
- * descriptions: prints absolute value of each integer
- * Return: always 0
+ * description: prints absolute value of each integer
+ * @int: integer
+ * Return: always 0 (success)
  */
-
-int _abs(int)
+int _abs(int a, int b)
 {
-	int a;
-	int b;
-
-	if (a >= 0)
+	if (b >= 0)
 	{
-		 printf("%d\n", a);
+		 printf("%d\n", b);
 	}
-	else if (a < 0)
+	else if (b < 0)
 	{
-		b = a - (2 * a);
-		printf("%d\n", b);
+		a = b - (2 * b);
+		printf("%d\n", a);
 	}
 	return (0);
 }
