@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include "main.h"
 /**
- * _islower - entry point
+ * _islower - returns 1 if input is lowercase, otherwise 0
+ *
  * description: returns 1 if lowercase, otherwise 0
+ *
  * @c: letter, lowercase or not?
- * return: _islower
+ *
+ * return: 1 if lowercase, otherwise 0
  */
 int _islower(int c)
 {
