@@ -3,9 +3,9 @@
 
 /**
  *_isalpha - entry point
- * description: checks for lower or upper case letters
+ * Description: checks for lower or upper case letters
  * @c: letter
- * return: _isalpha (0)
+ * Return: 1 if letter, otherwise 0
  */
 
 int _isalpha(int c)
