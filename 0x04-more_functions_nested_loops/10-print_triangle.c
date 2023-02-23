@@ -26,10 +26,9 @@ void print_triangle(int size)
 			{
 				_putchar(' ');
 			}
-			for (l = size - k; l <= size; l++)
-				{
-					_putchar(35);
-				}
+			for (l = 1; l <= i; l++)
+			{
+				_putchar(35);
 			}
 			_putchar('\n');
 		}
