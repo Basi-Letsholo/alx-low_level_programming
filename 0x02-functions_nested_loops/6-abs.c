@@ -6,7 +6,7 @@
  * @int: integer
  * Return: always 0 (success)
  */
-int _abs(int a, int b)
+int _abs(int b)
 {
 	if (b >= 0)
 	{
@@ -14,8 +14,7 @@ int _abs(int a, int b)
 	}
 	else if (b < 0)
 	{
-		a = b - (2 * b);
-		printf("%d\n", a);
+		printf("%d\n", (b - (2 * b)));
 	}
 	return (0);
 }
