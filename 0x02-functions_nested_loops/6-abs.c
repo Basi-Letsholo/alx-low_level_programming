@@ -11,11 +11,13 @@ int _abs(int b)
 {
 	if (b >= 0)
 	{
-		printf("%d\n", b);
+		/*printf("%d\n", b);*/
+		b = b;
 	}
 	else if (b < 0)
 	{
-		printf("%d\n", (b - (2 * b)));
+		b = b - (2 * b);
+		/*printf("%d\n", (b - (2 * b)));*/
 	}
-	return (0);
+	return (b);
 }
