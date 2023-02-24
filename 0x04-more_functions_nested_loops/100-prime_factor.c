@@ -9,12 +9,11 @@
 
 int main(void)
 {
-	int n;
+	long int n;
 	int i;
-	int j;
 
 	n = 612852475143;
-	for (i = n - 1; n > 0; n--)
+	for (i = n - 1; i > 0; i--)
 	{
 		if ((n % i) == 0)
 		{
