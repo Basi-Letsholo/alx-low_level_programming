@@ -11,25 +11,22 @@
 void puts2(char *str)
 {
 	char *s;
-	int i, j, l;
+	int i, l, m, n;
 
 	s = str;
 	l = 0;
 
-	for (j = 0; s[j] != '\0'; j++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
 		l++;
 	}
-	while (*s != '\0')
+	if ((l % 2) == 0)
 	{
-		for (i = 0; (i % 2) == 0; i++)
-		{
-			if (i >= l)
-			{
-				*s = s[i];
-				printf("%c", *s);
-			}
-		}
+		m = l;
+	}
+	for (n = m; n <= l - 1; n++)
+	{
+		printf("%c", s[n]);
 	}
 	printf("\n");
 }
