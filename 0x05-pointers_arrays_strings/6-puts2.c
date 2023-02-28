@@ -24,12 +24,5 @@ void puts2(char *str)
 		printf("%c", s[l]);
 		}
 	}
-	/*if ((l % 2) == 0)
-	*{
-	*	for (n = 0; n <= l - 1; n++)
-	*	{
-	*		printf("%c", s[n]);
-	*	}
-	*}*/
 	printf("\n");
 }
