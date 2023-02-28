@@ -10,26 +10,24 @@
 
 void print_rev(char *s)
 {
-	int i, j, l;
-	char *a, *b, ch;
+	int i;
+	char *a, *b;
 
-	l = 0;
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		l++;
-	}
 	a = s;
-	b = s;
-	for (j = 0; j < l - 1; j++)
+	i = -1;
+
+	while (*a)
 	{
-		b++;
+		a++;
+		i++;
 	}
-	for (j = 0; j < l / 2; j++)
+	while (i >= 0)
 	{
-		ch = *b;
+		a--;
 		*b = *a;
-		*a = ch;
-		printf("%c", *a++);
-		printf("%c", *b--);
+		b++;
+		--i;
 	}
+	*b = '\0';
+	printf("%s", b);
 }
