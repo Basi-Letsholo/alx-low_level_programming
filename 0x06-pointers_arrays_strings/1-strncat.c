@@ -24,9 +24,12 @@ char *_strncat(char *dest, char *src, int n)
 	}
 	if (n < l - 1)
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		while (j <= n)
+		{
+			dest[i] = src[j];
+			i++;
+			j++;
+		}
 	}
 	else if (n >= l - 1)
 	{
