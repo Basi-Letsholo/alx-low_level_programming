@@ -10,7 +10,7 @@
 
 void rev_string(char *s)
 {
-	int i = 0, l = 0;
+	int i = 0, l = 1, m = 0;
 	char *begin, *end, temp;
 
 	begin = s;
@@ -20,11 +20,19 @@ void rev_string(char *s)
 	{
 		l++;
 	}
+	if (l % 2 == 0)
+	{
+		m = l / 2;
+	}
+	else
+	{
+		m = (l) / 2;
+	}
 	for (i = 0; i < l - 1; i++)
 	{
 		end++;
 	}
-	for (i = 0; i < l / 2; i++)
+	for (i = 0; i < m - 1; i++)
 	{
 		temp = *end;
 		*end = *begin;
