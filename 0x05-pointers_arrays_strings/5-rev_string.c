@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "main.h"
+#include <string.h>
 /**
  * rev_string - reverses a string
  *
@@ -9,17 +10,27 @@
 
 void rev_string(char *s)
 {
-	int i = 0, j = 0, l = 0;
+	int i = 0, l = 0;
+	char *begin, *end, temp;
 
-	while (*s != '\0')
+	begin = s;
+	end = s;
+
+	for (i = 0; s[i] != '\0'; i++)
 	{
 		l++;
 	}
-	j = l - 1;
-	for (i = 0; i < l; i++)
+	for (i = 0; i < l - 1; i++)
 	{
-		s[i] = s[j];
-		j--;
+		end++;
 	}
-	s[i] = '\0';
+	for (i = 0; i < l / 2; i++)
+	{
+		temp = *end;
+		*end = *begin;
+		*begin = temp;
+		begin++;
+		end--;
+	}
+	*s = temp;
 }
