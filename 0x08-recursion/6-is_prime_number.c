@@ -9,24 +9,24 @@
 
 int is_prime_number(int n)
 {
-	int i = n, l, m;
+	int i = n - 1, l = 0;
 
-	if (n <= 1)
+	if (i < 1)
 	{
 		l = 0;
 	}
-	if ( n == 2)
+	if (i == 1)
 	{
 		l = 1;
 	}
-	m = i % is_prime_number(n - 1);
-	if (m == 0)
+	else if (n % i == 0)
 	{
 		l = 0;
 	}
 	else
 	{
-		l = 1;
+		i = i - 1;
+		is_prime_number(n);
 	}
 	return (l);
 }
