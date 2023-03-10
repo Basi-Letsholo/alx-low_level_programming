@@ -11,12 +11,11 @@
 
 int main(int argc, char *argv[])
 {
-	int i, sum, *n[100];
+	int i, sum, n[100];
 
 	if (argc == 1)
 	{
 		printf("0\n");
-		return (1);
 	}
 	if (argc > 1)
 	{
@@ -24,16 +23,9 @@ int main(int argc, char *argv[])
 		{
 			n[i] = atoi(argv[i]);
 			n[argc] = '\0';
-			if (n[i] == 0)
-			{
-				printf("Error\n");
-				return (1);
-			}
-			else
-			{
-				sum = sum + n[i];
-			}
+			sum = sum + n[i];
 		}
+		printf("%d\n", sum);
 	}
 	return (0);
 }
