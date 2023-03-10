@@ -4,7 +4,7 @@
  * main - prints name of program
  *
  * @argc: how many command line arguments
- * @argv[]: array of arguments
+ * @argv: array of arguments
  * Return: 0
  */
 
