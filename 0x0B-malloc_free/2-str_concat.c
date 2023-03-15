@@ -20,18 +20,33 @@ char *str_concat(char *s1, char *s2)
 	p3 = p1 + p2 + 1;
 	a = malloc(p3);
 
-	while (*s1 != '\0')
+	if (s1 == NULL)
 	{
-		a[i] = *s1;
-		s1++;
-		i++;
+		*s1 = '\0';
 	}
-	while (*s2 != '\0')
+	if (s2 == NULL)
 	{
-		a[i] = *s2;
-		s2++;
-		i++;
+		*s2 = '\0';
 	}
-	a[i] = '\0';
+	if (a)
+	{
+		while (*s1 != '\0')
+		{
+			a[i] = *s1;
+			s1++;
+			i++;
+		}
+		while (*s2 != '\0')
+		{
+			a[i] = *s2;
+			s2++;
+			i++;
+		}
+		a[i] = '\0';
+	}
+	else
+	{
+		return (NULL);
+	}
 	return (a);
 }
