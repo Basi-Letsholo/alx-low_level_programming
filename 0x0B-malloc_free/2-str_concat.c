@@ -13,21 +13,20 @@
 char *str_concat(char *s1, char *s2)
 {
 	size_t p1, p2, p3, i = 0;
-	char *a;
+	char *a, s = '\0';
 
+	if (s1 == NULL)
+	{
+		s1 = &s;
+	}
+	if (s2 == NULL)
+	{
+		s2 = &s;
+	}
 	p1 = strlen(s1);
 	p2 = strlen(s2);
 	p3 = p1 + p2 + 1;
 	a = malloc(p3);
-
-	if (s1 == NULL)
-	{
-		s1 = '\0';
-	}
-	if (s2 == NULL)
-	{
-		s2 = '\0';
-	}
 	if (a)
 	{
 		while (*s1 != '\0')
