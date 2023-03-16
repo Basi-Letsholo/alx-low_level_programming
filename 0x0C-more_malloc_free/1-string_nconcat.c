@@ -15,7 +15,16 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	size_t p1, p2, p3, i = 0;
 	char *new;
+	char s = '\0';
 
+	if (s1 == NULL)
+	{
+		s1 = &s;
+	}
+	if (s2 == NULL)
+	{
+		s2 = &s;
+	}
 	p1 = strlen(s1);
 	p2 = strlen(s2);
 	if (n < p2)
