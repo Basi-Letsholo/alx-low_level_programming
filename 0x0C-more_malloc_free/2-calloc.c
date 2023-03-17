@@ -11,7 +11,18 @@
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	unsigned int i;
+	void *new = malloc((nmemb * size) + 1);
 
-	
+	if (nmemb == 0 || size == 0)
+	{
+		return (NULL);
+	}
+	if (new)
+	{
+		return (new);
+	}
+	else
+	{
+		return (NULL);
+	}
 }
