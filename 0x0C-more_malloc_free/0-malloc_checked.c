@@ -10,29 +10,14 @@
 
 void *malloc_checked(unsigned int b)
 {
-	char *c;
-	int *i;
-	float *f;
-	double *d;
+	void *new = malloc(b);
 
-	if (c)
+	if (new)
 	{
-		c = malloc(b);
-	}
-	if (i)
-	{
-		i = malloc(b);
-	}
-	if (f)
-	{
-		f = malloc(b);
-	}
-	if (d)
-	{
-		d = malloc(b);
+		return (new);
 	}
 	else
 	{
-		return (98);
+		exit (98);
 	}
 }
