@@ -11,25 +11,28 @@
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *new = malloc((nmemb * size) + 1);
-	void *a[1000];
+	void *b = malloc((nmemb * size) + 1);
+	char *a;
 	unsigned int i;
 
 	if (nmemb == 0 || size == 0)
 	{
 		return (NULL);
 	}
-	if (new)
+	if (b)
 	{
-		for (i = 0; i < nmemb; i++)
+		a = b;
+		if (a != NULL)
 		{
-			a[i] = 0;
+			for (i = 0; i < nmemb; i++)
+			{
+				a[i] = 0;
+			}
 		}
-		new = &a;
-		return (new);
 	}
 	else
 	{
 		return (NULL);
 	}
+	return (b);
 }
