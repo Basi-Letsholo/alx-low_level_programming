@@ -18,11 +18,10 @@ int int_index(int *array, int size, int (*cmp)(int))
 	for (i = 0; i < size; i++)
 	{
 		new = (*cmp)(array[i]);
-		if (new == 0)
+		flag++;
+		if (new != 0)
 		{
-			flag++;
-			break;
-			r = flag;
+			return (flag - 1);
 		}
 		else
 		{
