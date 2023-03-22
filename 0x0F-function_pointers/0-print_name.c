@@ -8,16 +8,7 @@
  * Return: void
  */
 
-void f(char a)
-{
-	int i;
-
-	for (i = 0; *a != '\0'; i++)
-	{
-		_putchar(*(a + 1);
-	}
-}
 void print_name(char *name, void (*f)(char *))
 {
-	name = (*f)(name);
+	(*f)(name);
 }
