@@ -8,14 +8,14 @@
  * Return: int
  */
 
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int x;
 
 	if (argc != 2)
 	{
 		printf("Error\n");
-		exit (1);
+		exit(1);
 	}
 	if (argc == 2)
 	{
@@ -23,11 +23,11 @@ int main (int argc, char *argv[])
 		if (x < 0)
 		{
 			printf("Error\n");
-			exit (2);
+			exit(2);
 		}
 		else
 		{
-			printf("%d\n", x);
+			printf("%x\n", x);
 		}
 	}
 }
