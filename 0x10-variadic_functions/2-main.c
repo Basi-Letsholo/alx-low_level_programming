@@ -8,6 +8,6 @@
  */
 int main(void)
 {
-    print_strings(", ", 3, NULL, "Jay", "Django");
+    print_strings(", ", 0, NULL, "Jay", "Django");
     return (0);
 }
