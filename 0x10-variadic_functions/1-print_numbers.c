@@ -19,10 +19,10 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	va_list args;
 
 	va_start(args, n);
-	if (n == 0)
+	/*if (n == 0)
 	{
 		return;
-	}
+	}*/
 	for (i = 0; i < n; i++)
 	{
 		x = va_arg(args, int);
@@ -40,10 +40,6 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		else
 		{
 			printf("%d", x);
-			if (i < n - 1)
-			{
-				printf(" ");
-			}
 		}
 	}
 	printf("\n");
