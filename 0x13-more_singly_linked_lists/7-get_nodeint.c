@@ -6,6 +6,7 @@
  *
  * @head: list
  * @index: index of node, starting at zero
+ * Return: new list
  */
 
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
