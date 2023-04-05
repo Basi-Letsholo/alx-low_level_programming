@@ -1,3 +1,4 @@
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "main.h"
@@ -11,23 +12,35 @@
 
 char *argstostr(int ac, char **av)
 {
-	int 
+	int i, j, k, l;
 	char *new;
-
-	new = (char *)malloc((sizeof(int) * ac) * (sizeof(char) * ;
 
 	if (ac == 0 || av == NULL)
 	{
 		return (NULL);
 	}
-	if (new)
-	{
-		for (i = 0; **av != '\0'; i++)
+	l = 0;
 
+	for (i = 0; i < ac; i++)
+	{
+		l = strlen(av[i]) + 1 + l;
 	}
-	else
+	new = malloc(sizeof(char) * l);
+
+	if (new == NULL)
 	{
 		return (NULL);
 	}
+	k = 0;
+
+	for (i = 0; i < ac; i++)
+	{
+		for (j = 0; av[i][j] != '\0'; j++)
+		{
+			new[k++] = av[i][j];
+		}
+		new[k++] = '\n';
+	}
+	new[k] = '\0';
 	return (new);
 }
