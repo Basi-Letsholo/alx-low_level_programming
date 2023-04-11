@@ -13,16 +13,27 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	char text[1000];
 	FILE *fn;
-
+	size_t n;
+	
 	if (filename == NULL)
 	{
 		return (0);
 	}
 	fn = fopen(filename, "r");
 
-	fgets(text, letters, fn);
-	text[letters] = '\0';
-	printf("%s\n", text);
+	if (fn == NULL)
+	{
+		return (0);
+	}
+	n = fread(text, 1, letters, fn);
+	text[n] = '\0';
+	printf("%s", text);
+/*
+	if (n != letters)
+	{
+		fclose(fn);
+		return (0);
+	}*/
 
 	fclose(fn);
 	return (letters);
