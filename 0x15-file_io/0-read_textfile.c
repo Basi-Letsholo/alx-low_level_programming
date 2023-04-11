@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <fcntl.h>
 #include <unistd.h>
 #include "main.h"
 /**
@@ -12,23 +13,23 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	char text[1000];
-	FILE *fn;
-	size_t n;
+	int fn;
+	ssize_t n;
 
 	if (filename == NULL)
 	{
 		return (0);
 	}
-	fn = fopen(filename, "r");
+	fn = open(filename, O_RDONLY);
 
-	if (fn == NULL)
+	if (fn == -1)
 	{
 		return (0);
 	}
-	n = fread(text, 1, letters, fn);
-	text[n] = '\0';
+	n = read(fn, text, letters);
+	/*text[n] = '\0'; */
 	printf("%s", text);
 
-	fclose(fn);
-	return (letters);
+	close(fn);
+	return (n);
 }
