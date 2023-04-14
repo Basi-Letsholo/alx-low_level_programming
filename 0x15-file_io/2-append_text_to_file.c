@@ -14,22 +14,30 @@
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int fa;
-	char text[1000];
+	/*char text[1000];*/
 	ssize_t n;
+	off_t off;
 
-	fa = open(filename, O_RDWR);
 	if (filename == NULL)
 	{
 		return (-1);
 	}
-	n = read(fa, text, sizeof(text));
+	fa = open(filename, O_RDWR);
 
-	strcat(text, text_content);
-	n = write(fa, text, sizeof(text));
-	
-	if (n == -1)
+	if (fa == -1)
 	{
 		return (-1);
+	}
+	if (text_content != NULL)
+	{
+		off = lseek(fa, 0, SEEK_END);
+		n = write(fa, text_content, strlen(text_content));
+		if (n == -1)
+		{
+			close(fa);
+			return (-1);
+		}
+		off += n;
 	}
 	close(fa);
 	return(1);
