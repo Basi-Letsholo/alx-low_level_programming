@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include "main.h"
@@ -12,7 +13,7 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	char text[10000];
+	char *text;
 	int fn;
 	ssize_t n;
 
@@ -26,10 +27,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	{
 		return (0);
 	}
+	text = (char *)malloc(sizeof(char) * (letters + 1));
 	n = read(fn, text, letters);
 	/*text[n] = '\0'; */
 	write(STDOUT_FILENO, text, letters);
 
 	close(fn);
+	free(text);
 	return (n);
 }
