@@ -27,6 +27,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	{
 		return (0);
 	}
+
 	text = (char *)malloc(sizeof(char) * (letters + 1));
 	n = read(fn, text, letters);
 	/*text[n] = '\0'; */
