@@ -33,13 +33,6 @@ int main(int ac, char **av)
 		exit(98);
 	}
 	/* now we need to read from f_from and save to buffer to send to f_to */
-	n = read(f_from, text, sizeof(text));
-	if (n == -1)
-	{
-		close(f_from);
-		fprintf(stderr, "Error: Can't read from file %s\n", av[1]);
-		exit(98);
-	}
 
 	f_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (f_to == -1)
@@ -47,14 +40,34 @@ int main(int ac, char **av)
 		fprintf(stderr, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
-	m = write(f_to, text, sizeof(text));
-	if (m == -1)
+	n = read(f_from, text, sizeof(text));
+	if (n > 0)
 	{
-		close(f_to);
-		fprintf(stderr, "Error: Can't write to %s\n", av[2]);
-		exit(99);
+		m = write(f_to, text, n);
+		if (m == -1)
+		{
+			close(f_from);
+			close(f_to);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+			exit(99);
+		}
 	}
-	close(f_from);
-	close(f_to);
+	if (n == -1)
+	{
+		close(f_from);
+		close(f_to);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
+		exit(98);
+	}
+	if (close(f_from) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", f_from);
+		exit(100);
+	}
+	if (close(f_to) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", f_to);
+		exit(100);
+	}
 	return(0);
 }
