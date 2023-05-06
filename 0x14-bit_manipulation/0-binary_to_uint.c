@@ -9,39 +9,42 @@
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int i, l, n, *new = NULL;
+	unsigned int i, l = 0, *new = NULL, n = 0;
 
 	if (b == NULL)
 	{
 		return (0);
 	}
-	l = _strlen(b);
 	for (i = 0; b[i] != '\0'; i++)
 	{
-		if (b[i] != '0' || b[i] != '1')
+		if (b[i] != '1' && b[i] != '0')
 		{
+			free(new);
 			return (0);
+		}
+		l++;
+	}
+	new = malloc(sizeof(int) * (l + 1));
+	if (new == NULL)
+	{
+		return (0);
+	}
+	for (i = 0; i < l; i++)
+	{
+		if (b[i] == '1')
+		{
+			new[i] = 1;
 		}
 		else
 		{
-			new = malloc(sizeof(unsigned int) * (l + 1));
-			if (new == NULL)
-			{
-				return (0);
-			}
-			if (b[i] == '0')
-			{
-				new[i] = 0;
-			}
-			else if (b[i] == '1')
-			{
-				new[i] = 1;
-			}
+			new[i] = 0;
 		}
 	}
-	for (i = l - 2; i >= 1; i--)
+	for (i = 0; i < l; i++)
 	{
-		n += ((_pow(2, i + 1)) * new[i + 1]);
+		n += new[l - 1 - i] * (1 << i);
 	}
+	free(new);
 	return (n);
+
 }
