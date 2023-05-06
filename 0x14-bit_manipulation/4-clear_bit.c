@@ -1,3 +1,4 @@
+#include "main.h"
 #include <stdio.h>
 /**
  * clear_bit - setts value of bit to 0 at index
