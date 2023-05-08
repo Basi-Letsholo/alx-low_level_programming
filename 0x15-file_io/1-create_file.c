@@ -13,7 +13,8 @@
 int create_file(const char *filename, char *text_content)
 {
 	int fd;
-	size_t n;
+	ssize_t n;
+	size_t l = 0;
 
 	if (filename == NULL)
 	{
@@ -25,12 +26,21 @@ int create_file(const char *filename, char *text_content)
 	{
 		return (-1);
 	}
-	n = write(fd, text_content, sizeof(text_content));
-	if (n != sizeof(text_content))
+	while (text_content[l] != '\0')
 	{
-		return (-1);
+		l++;
 	}
-	close(fd);
+
+	if (text_content != NULL)
+	{
+		n = write(fd, text_content, (sizeof(char) * l));
+		if (n != sizeof(char) * l)
+		{
+			close(fd);
+			return (-1);
+		}
+	}
+
 	if (close(fd) == -1)
 	{
 		return (-1);
