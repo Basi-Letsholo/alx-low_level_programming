@@ -7,23 +7,23 @@
 
 int main(void)
 {
-	long int i, sum = 0, arr[50];
+	long int i, j = 0, sum = 0, arr[35];
 
 	arr[0] = 1;
 	arr[1] = 2;
 
-	for (i = 2; i < 50; i++)
+	for (i = 2; i < 35; i++)
 	{
 		arr[i] = arr[i - 2] + arr[i - 1];
 	}
 
-	i = 0;
-	while (arr[i] < 4000000)
+	while (arr[j] < 4000000)
 	{
-		if (arr[i] % 2 == 0)
+		if ((arr[j] % 2) == 0)
 		{
-			sum += arr[i];
+			sum += arr[j];
 		}
+		j++;
 	}
 	printf("%ld\n", sum);
 
