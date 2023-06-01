@@ -13,15 +13,23 @@ int main(void)
 	int day;
 	int year;
 
-	month = 02;
-	day = 29;
-	year = 2000;
+	month = 03;
+	day = 1;
+	year = 2008;
 
 	printf("Date: %02d/%02d/%04d\n", month, day, year);
 
 	day = convert_day(month, day);
 
 	print_remaining_days(month, day, year);
+
+	printf("Date: 02/29/2000\n");
+	day = convert_day(02, 29);
+	print_remaining_days(02, day, 2000);
+
+	printf("Date: 12/31/4000\n");
+	day = convert_day(12, 31);
+	print_remaining_days(12, day, 4000);
 
 	return (0);
 }
