@@ -50,6 +50,11 @@ void print_times_table(int n)
 	_putchar('\n');
 }
 
+/**
+ * print_num - prints numbers greater than 9 using putchar
+ * @num: number
+ * Return: void
+ */
 void print_num(int num)
 {
 	int arr[3];
@@ -58,7 +63,7 @@ void print_num(int num)
 	arr[1] = (num / 10) % 10;
 	if (num >= 100)
 	{
-		arr[2] = (num /100) % 10;
+		arr[2] = (num / 100) % 10;
 		_putchar(arr[2] + '0');
 	}
 	else
