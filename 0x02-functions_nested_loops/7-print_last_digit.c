@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "main.h"
+#include <limits.h>
 /**
  * print_last_digit - entry point
  *
@@ -9,19 +10,21 @@
 
 int print_last_digit(int n)
 {
-	/*printf("%d", (n % 10));*/
 	int m;
 
-	if (n >= 0)
+	if (n == INT_MIN)
 	{
-		m = n % 10;
-		_putchar(m + 48);
+		m = - (n % 10);
 	}
-	else if (n < 0)
+	else
 	{
-		n = n - (n * 2);
+		if (n < 0)
+		{
+			n = -n;
+		}
 		m = n % 10;
-		_putchar(m + 48);
 	}
+
+	_putchar(m + '0');	
 	return (m);
 }
