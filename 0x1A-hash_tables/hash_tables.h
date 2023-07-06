@@ -1,8 +1,6 @@
 #ifndef HASH_TABLES
 #define HASH_TABLES
 
-#define ARRAY_SIZE 4096
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
