@@ -9,6 +9,8 @@
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-    unsigned long int key_index;
+    unsigned long int current_index;
     hash_table_t *current_table;
+
+    current_index = key_index(k)
 }
