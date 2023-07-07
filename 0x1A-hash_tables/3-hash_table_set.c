@@ -9,8 +9,40 @@
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int current_index;
-	hash_table_t *current_table;
+	unsigned long int index;
+	hash_node_t *current_node, *new_node = NULL;
+	char *value_cp;
+	const unsigned char *key_cp;
 
-	current_index = key_index(k)
+	value_cp = strdup(value);
+	key_cp = (const unsigned char *)key;
+	index = key_index(key_cp, ht->size);
+
+	current_node = malloc(sizeof(hash_node_t));
+	if (current_node == NULL)
+	{
+		return (0);
+	}
+
+	current_node->key = strdup(key);
+	current_node->value = value_cp;
+
+	/* if index NUll, add value, BUT if not, add new value to linked list */
+	if (ht->array[index] == NULL)
+	{
+		ht->array[index] = current_node;
+	}
+
+	else
+	{
+		new_node = ht->array[index];
+		while (new_node->next != NULL)
+		{
+			new_node = new_node->next;
+		}
+		new_node->next = current_node;
+	}
+
+	return (1);
+
 }
