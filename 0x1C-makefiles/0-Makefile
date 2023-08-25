@@ -1,0 +1,14 @@
+all: school
+
+CC = gcc
+SRC = main.c school.c
+# objects = $(SRCS:.c=.o)
+
+school: main.c school.c
+	$(CC) main.c school.c  -o school
+
+main.o: main.c
+	$(CC) -c main.c -o main.o
+
+clean:
+	rm -f $(objects) school
