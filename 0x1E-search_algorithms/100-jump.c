@@ -9,7 +9,7 @@
 
 int jump_search(int *array, size_t size, int value)
 {
-	size_t i = 0, index = 0;
+	int index = 0;
 
 	if (array == NULL)
 	{
@@ -23,9 +23,8 @@ int jump_search(int *array, size_t size, int value)
 	}
 	else
 	{
-		index = search_func(array, i, size, value);
-		printf("main: value = %lu\n", index);
-		if (index == 0)
+		index = search_func(array, 0, size, value);
+		if (index == -1)
 		{
 			return (-1);
 		}
@@ -36,38 +35,41 @@ int jump_search(int *array, size_t size, int value)
 	return (-1);
 }
 
-size_t search_func(int *array, size_t i, size_t size, int value)
+int search_func(int *array, size_t i, size_t size, int value)
 {
 	size_t current, block_size, j = 0;
 
 	block_size = sqrt(size);
+	if (i * block_size >= size)
+	{
+		return (-1);
+	}
+
 	current = block_size * i;
 
-	while (current <= size)
-	{
-		printf("Value checked array[%lu] = [%d]\n", current, array[current]);
 
-		if (value == array[current])
+	printf("Value checked array[%lu] = [%d]\n", current, array[current]);
+
+	if (value == array[current])
+	{
+		return (current);
+	}
+	else if (value > array[current] && value <= array[current + block_size])
+	{
+		printf("Value found between indexes [%lu] and [%lu]\n", current, current + block_size);
+		for (j = 0; j <= block_size; j++)
 		{
-			return (current);
-		}
-		else if (value > array[current] && value <= array[current + block_size])
-		{
-			printf("Value found between indexes [%lu] and [%lu]\n", current, current + block_size);
-			for (j = 0; j <= block_size; j++)
+			printf("Value checked array[%lu] = [%d]\n",j + current, array[j + current]);
+			if (value == array[j + current])
 			{
-				printf("Value checked array[%lu] = [%d]\n",j + current, array[j + current]);
-				if (value == array[j + current])
-				{
-					printf("found! index = %lu\n", j + current);
-					return ((j + current));
-				}	
-			}
-		}
-		else
-		{
-			search_func(array, i + 1, size, value);
+				return ((j + current));
+			}	
 		}
 	}
-	return (0);
+	else
+	{
+		return (search_func(array, i + 1, size, value));
+	}
+
+	return (-1);
 }
